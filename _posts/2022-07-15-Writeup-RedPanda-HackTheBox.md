@@ -32,3 +32,30 @@ Probamos con el caracter * y vemos que si que nos deja
 
 ![imagen](https://user-images.githubusercontent.com/109216235/185764892-8e6c1201-4efe-42bd-a6c4-26852677a38e.png)
 
+Sabiendo esto usando esta herramienta de VikasVarshney https://github.com/VikasVarshney/ssti-payload podemos crear un payload que nos permita ejecutar comandos en el buscador. Si ponemos este payload en el buscador conseguiremos la "user.txt".
+
+```javascript
+FALTA PAYLOAD
+```
+Utilizando la misma tecnica encontramos un archivo en esta ruta /opt/panda_search/src/main/java/com/panda_search/htb/panda_search/MainController.java Utilizando este payload 
+
+```javascript
+FALTA PAYLOAD
+```
+
+Y nos devuelve esto
+
+```javascript
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/red_panda", "woodenk", "RedPandazRule");
+stmt = conn.prepareStatement("SELECT name, bio, imgloc, author FROM pandas WHERE name LIKE ?");
+stmt.setString(1, "%" + query + "%");
+```
+
+Este output nos indica un posible usuario y una posible contraseña. Probando conseguimos acceder al ssh
+```bash
+ssh woodenk@10.10.11.170
+woodenk@10.10.11.170's password: RedPandazRule
+```
+
+# [](#header-3) Escalada de privilegios
+
