@@ -5,7 +5,7 @@ published: false
 
 
 
-Hoy resolveremos la maquina retirada "RedPanda" es una maquina de hack the box de dificultad facil.
+Hoy resolveremos la máquina retirada "RedPanda" es una máquina de hack the box de dificultad fácil.
 
 
 ![RedPanda](https://user-images.githubusercontent.com/109216235/185928422-3e828dfa-543c-4e4f-b1e0-c1a2fdced03b.png)
@@ -19,6 +19,7 @@ Empezamos escaneando los puertos de la maquina con nmap
 
 ```nmap
 nmap -sC -sV -T4 10.10.11.170
+
 Nmap scan report for 10.10.11.170
 PORT      STATE SERVICE
 22/tcp    open  ssh
