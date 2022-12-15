@@ -1,6 +1,6 @@
 ---
 title: Precious
-published: false
+published: true
 ---
 
 Hoy resolveremos la máquina retirada "Precious" es una máquina de hack the box de dificultad fácil.
