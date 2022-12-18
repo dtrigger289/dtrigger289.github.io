@@ -1,0 +1,5 @@
+---
+title: Precious
+layout: encrypted
+
+---
