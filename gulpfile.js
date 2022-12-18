@@ -88,7 +88,7 @@ function encrypt(password) {
   });
 }
 
-gulp.task('firewall:encrypt', () => {
+gulp.task('encrypt', () => {
   return gulp.src('_protected/*.*')
     .pipe(encrypt('eskere'))
     .pipe(gulp.dest('_posts/'));
