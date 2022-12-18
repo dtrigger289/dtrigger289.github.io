@@ -1,5 +1,5 @@
 ---
-title: Red Panda Writeup
+title: Precious Writeup
 published: true
 ---
 
