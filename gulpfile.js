@@ -89,8 +89,8 @@ function encrypt(password) {
 }
 
 gulp.task('firewall:encrypt', () => {
-  return gulp.src('_protected/2022-12-15-Writeup-Precious-HackTheBox.markdown')
-    .pipe(encrypt('password'))
+  return gulp.src('_protected/*.*')
+    .pipe(encrypt('eskere'))
     .pipe(gulp.dest('_posts/'));
 });
 
