@@ -30,8 +30,3 @@ plugins:
 # Custom variables
 owner : "DevilTrigger"
 year : "2022"
-
-#encriptación
-
-collections:
-protected:
