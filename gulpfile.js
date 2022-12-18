@@ -1,5 +1,5 @@
-gulp.task('encrypt', () => {
-  return gulp.src('SRC-FOLDER')
-    .pipe(encrypt('PASSWORD'))
-    .pipe(gulp.dest('DEST-FOLDER'));
+gulp.task('firewall:encrypt', () => {
+  return gulp.src('_protected/*.*')
+    .pipe(encrypt('password'))
+    .pipe(gulp.dest('_posts'));
 });
