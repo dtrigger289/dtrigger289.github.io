@@ -1,6 +1,6 @@
 ---
 title: Soccer Writeup
-published: false
+published: true
 ---
 
 
