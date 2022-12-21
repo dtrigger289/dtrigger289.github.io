@@ -1,6 +1,5 @@
 ---
-title: Soccer Writeup
-published: true
+layout: encrypted
 ---
 
 
