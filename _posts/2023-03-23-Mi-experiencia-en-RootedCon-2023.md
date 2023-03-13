@@ -1,4 +1,11 @@
-[Foto rootedCON]
+---
+title: Mi experiencia en RootedCON 2023
+published: true
+---
+
+
+![rootedcon](https://user-images.githubusercontent.com/109216235/224811221-75c3ec01-9c4a-49dc-b821-9793cc3ad1a9.png)
+
 
 Este año he estado en la RootedCON 2023 durante los días 9,10 y 11 de marzo, era mi primera vez que iba a este tipo de eventos y ha sido una experiencia espectacular la cual volvería a repetir.
 
@@ -8,7 +15,9 @@ Algo muy bueno que tiene este evento es que tienen descansos donde puedes recoge
 
 Lo que me impulsó a ir a este evento fue que sabía que este evento era reconocido por mucha gente y decían que merecía la pena ir.
 
-[Foto entrada RootedCON]
+
+![imagen](https://user-images.githubusercontent.com/109216235/224811407-7c489682-8344-4ef3-858f-817b1635ef0a.png)
+
 
 # Día 1 (9 de marzo)
 
@@ -50,6 +59,6 @@ El último día en mi opinión fue el mejor, conocí a 2 compañeros mientras ju
 - ¿Cómo podemos estar preparados?" 
 - "Quick and dirty Frida, with adb and objection"
 
-Antes de terminar el día, mientras estaba con mis compañeros en la fiesta final, nos encontramos a "John Hammond" y conseguimos hacernos una foto con él. 
+Antes de terminar el día, mientras estaba con mis compañeros en la fiesta final, nos encontramos a "John Hammond" y conseguimos hacernos una foto con él.
 
 Para finalizar este post, quiero decir que este evento ha sido alucinante, he aprendido muchas cosas sobre diferentes campos sobre los que no tenía ni idea como inteligencia artificial, blue team, rootkits... Recomiendo totalmente ir a este evento, si te estás planteando ir o no y tienes ganas de aprender, no deberías pensarlo e ir al evento a aprender y conocer gente del sector que te serán de gran ayuda para seguir aprendiendo.
