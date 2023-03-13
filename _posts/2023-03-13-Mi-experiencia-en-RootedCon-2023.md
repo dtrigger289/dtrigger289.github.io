@@ -7,13 +7,13 @@ published: true
 ![rootedcon](https://user-images.githubusercontent.com/109216235/224811221-75c3ec01-9c4a-49dc-b821-9793cc3ad1a9.png)
 
 
-Este año he estado en la RootedCON 2023 durante los días 9,10 y 11 de marzo, era mi primera vez que iba a este tipo de eventos y ha sido una experiencia espectacular la cual volvería a repetir.
+Este año he estado en la RootedCON 2023 durante los días 9,10 y 11 de marzo, era la primera vez que iba a este tipo de evento y ha sido una experiencia espectacular la cual volvería a repetir.
 
-Este evento trata sobre muchos temas del campo de la ciberseguridad, en este evento puedes encontrar muchas charlas las cuales pueden ser en español o en inglés, puestos de empresas que buscan trabajadores que quieran trabajar con ellos, sorteos, máquinas para poder jugar alguna partida...
+En él se tratan muchos temas del campo de la ciberseguridad, puedes encontrar charlas en español o en inglés, puestos de empresas que buscan trabajadores que quieran trabajar con ellos, sorteos, máquinas para poder jugar alguna partida...
 
-Algo muy bueno que tiene este evento es que tienen descansos donde puedes recoger una "Concha Codan", agua y un zumo. Cuando terminan las charlas podías ir al centro del evento donde ponen música.
+Un punto positivo es que en los descansos te dan un tentempie que consiste en "Concha Codan", agua y un zumo. Otro punto a favor es que cuando terminan las charlas te dan cerveza gratis y música electrónica.
 
-Lo que me impulsó a ir a este evento fue que sabía que este evento era reconocido por mucha gente y decían que merecía la pena ir.
+Lo que me impulsó a ir fue que sabía que era un gran evento, muy reconocido y que merecía la pena ir, doy fé de ello.
 
 
 ![imagen](https://user-images.githubusercontent.com/109216235/224811407-7c489682-8344-4ef3-858f-817b1635ef0a.png)
@@ -21,9 +21,9 @@ Lo que me impulsó a ir a este evento fue que sabía que este evento era reconoc
 
 # Día 1 (9 de marzo)
 
-El primer día del evento llegué prácticamente 1 hora y media antes de que empezara el evento oficialmente para poder acreditarme sin tener que hacer una cola gigante (solo tuve que esperar 20 minutos). Mientras esperaba dentro del evento a que empezara, había varios puestos de varias empresas como (empresas) y me informé sobre qué tipos de perfiles buscan, donde se sitúan, su forma de trabajar...
+El primer día llegué prácticamente 1 hora y media antes de que empezara, para poder acreditarme sin tener que hacer una cola gigante (solo tuve que esperar 20 minutos). Mientras esperaba dentro a que empezaran las ponencias, visité varios stands de empresas como "Tarlogic", "CCN-CERT", "Airbus"... y me informé sobre qué tipos de perfiles buscan, donde se sitúan, su forma de trabajar...
 
-Durante este día fui a las charlas: 
+Durante ese día fui a las charlas: 
 - "Estado del arte en Seguridad Blockchain y Smartcontracts" 
 - "Ukraine-Russia CyberWar: Telecom Hijack" 
 - "Digital Resilience - The latest buzz term? If not, how can I measure it?" 
@@ -35,7 +35,7 @@ Durante este día fui a las charlas:
 
 # Día 2 (10 de marzo) 
 
-El segundo día también llegue temprano y descubrí que en uno de los stands podías ganar un "Flipper Zero" por tener la mayor puntuación en el "Pac-man". Además de jugar un rato, asistí a las charlas: 
+El segundo día también llegue temprano y descubrí que en uno de los stands podías ganar un "Flipper Zero" por tener la mayor puntuación en el "Pac-man". Además de jugar un rato, asistí a las siguientes charlas: 
 
 - "Ataques Bluetooth, de la teoría a la práctica… (hay un trecho)" 
 - "HUMINT (Human Intelligence) against the hacker" 
@@ -49,7 +49,7 @@ El segundo día también llegue temprano y descubrí que en uno de los stands po
 
 # Día 3 (11 de marzo) 
 
-El último día en mi opinión fue el mejor, conocí a 2 compañeros mientras jugaba al "Pac-man" (al final no gané el "Flipper Zero") y asistí a las charlas:
+El último día en mi opinión fue el mejor, conocí a 2 compañeros mientras jugaba al "Pac-man" (al final no gané el "Flipper Zero") y asistí a las siguientes ponencias:
 
 - "Firm to the future / Firm from the past" 
 - "Tú no tienes poder aquí: Sáltate los sistemas antidron con SDR" 
@@ -61,4 +61,4 @@ El último día en mi opinión fue el mejor, conocí a 2 compañeros mientras ju
 
 Antes de terminar el día, mientras estaba con mis compañeros en la fiesta final, nos encontramos a "John Hammond" y conseguimos hacernos una foto con él.
 
-Para finalizar este post, quiero decir que este evento ha sido alucinante, he aprendido muchas cosas sobre diferentes campos sobre los que no tenía ni idea como inteligencia artificial, blue team, rootkits... Recomiendo totalmente ir a este evento, si te estás planteando ir o no y tienes ganas de aprender, no deberías pensarlo e ir al evento a aprender y conocer gente del sector que te serán de gran ayuda para seguir aprendiendo.
+Para finalizar este post, quiero decir que este evento ha sido alucinante, he aprendido muchas cosas sobre diferentes campos sobre los que no tenía ni idea como inteligencia artificial, blue team, rootkits... Recomiendo totalmente ir, si te lo estás planteando y tienes ganas de aprender, no deberías pensarlo e ir a aprender y conocer gente del sector que te serán de gran ayuda en el futuro.
