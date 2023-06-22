@@ -7,7 +7,7 @@ Hoy resolveremos la ultima máquina del año 2022 de hack the box.
 
 ![Soccer](https://user-images.githubusercontent.com/109216235/208486293-032a47c7-aa8a-475c-9a8f-7c70a3eb6984.png)
 
-# Enumeración
+# [](#header-1) Enumeración
 ```nmap
 nmap -sC -sV -T4 10.129.116.169
 
@@ -234,7 +234,7 @@ Usando la herramienta "gobuster" descubrimos que tiene un subdirectorio llamado 
 
 ![image](https://user-images.githubusercontent.com/109216235/208491633-e084a3e6-4f79-429d-863f-116fc812e1f3.png)
 
-# Vulnerabilidad
+# [](#header-1) Vulnerabilidad
 
 Buscamos sobre "Tiny File Manager" y descubrimos que tiene un github con las credenciales por defecto (https://github.com/prasathmani/tinyfilemanager/blob/master/tinyfilemanager.php)
 
@@ -420,7 +420,7 @@ player@10.129.116.169's password: PlayerOftheMatch2022
 
 ```
 
-# Escalada de privilegios
+# [](#header-1) Escalada de privilegios
 
 Mirando el servidor encontramos en la carpeta /usr/bin/dstat que utiliza "dstat" que es bastante similiar a sudo. Para escalar de privilegios tendremos que crearnos un pluggin dstat_*algo*.py en la carpeta /usr/local/share/dstat/
 
