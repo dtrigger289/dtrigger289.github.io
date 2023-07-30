@@ -43,11 +43,11 @@ Nmap done: 1 IP address (1 host up) scanned in 6.43 seconds
 
 Gracias a la enumeración de nmap podemos ver que existe /admin/admin.php
 
-![[1a.png]]
+![1a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/289cf8a7-e11d-4310-85ed-0355ed9a7ef6)
 
 Si le damos al boton de "Inactive" para cambiarlo a "Active" pero no podemos porque lo tiene que hacer un administrador
 
-![[2a.png]]
+![2a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/b12c1aec-bdb0-42de-be93-615d92309251)
 
 Probamos a iniciar sesión pero la cuenta de "slamotte" esta inactiva, asi que tendremos que crear una cuenta nueva. Dentro de la pagina para crear una cuenta nueva podemos probar a realizar un XSS. Lo que vamos a hacer es crear un XSS donde llame a la petición "192.168.1.80/admin/admin.php?id=11&status=active"
 
@@ -72,7 +72,8 @@ python3 -m http.server 80
 ```
 
 Para poder mandarlo tendremos que borrar la etiqueta "disabled=""".
-![[3a.png]]
+
+![3a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/1a098021-e152-4704-8f95-1f406bfd7530)
 
 Después de un rato podremos ver lo siguiente
 
@@ -84,7 +85,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 
 Y podremos acceder a la cuenta de Samuel y podremos mandar la solicitud del dinero
 
-![[4a.png]]
+![4a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/2684c305-69b5-42a5-bfcc-9efcf9d25773)
 
 Lo mandamos y mirando la página web podemos encontrar en nuestro perfil que nuestro manager es "Manon Riviere". Para ello tendremos que modificar el script que teníamos antes pero en vez de mandar una petición, tendremos que capturar la cookie del usuario de "Manon Riviere"
 
@@ -118,17 +119,19 @@ Serving HTTP on 0.0.0.0 port 4444 (http://0.0.0.0:4444/) ...
 
 Probamos cada una de las cookies hasta que nos podamos cambiar de usuario ha "Manon Riviere"
 
-![[6a.png]]
+![5a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/6cd1f6ff-dc82-427b-807e-eab0e1b66fb1)
 
 Entramos en la pestaña "Expense reports" y permitimos el pago. Como paso final tenemos que llegar a ser "Paul Bauduoin" que es un "Financial approver". En la pestaña de "Rennes" podemos ver que si añadimos una ' en la url podemos ver que aparece el siguiente error.
 
-![[7a.png]]
+![6a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/35d5449f-929f-42c3-a611-02a643f7cc01)
 
 Asi que utilizando XSS otra vez pero en la url podremos sacar las contraseñas de los usuarios de la base de datos con la siguiente sintasis.
 
 ```sql
 http://192.168.1.81/site.php?id=2 union select 1, group_concat(username,0x3a, password) from user-- -
 ```
+
+![7a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/ac3c1d51-5a0a-4e3a-b048-5371fe615535)
 
 copiamos todo el contenido en un bloc de notas y quedaría así
 
@@ -152,4 +155,4 @@ deviltrigger:3f2c8111d6a0cfd65cf04dcf466014ca
 
 Continuamos desencriptando la contraseña de "pbaudouin" que está en md5. Iniciamos sesión con su usuario y contraseña y finalmente podremos validar el pago. Una vez validado podemos volver a la cuenta de "slamotte" conseguiremos la flag de la máquina.
 
-![[8a.png]]
+![8a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/6c857bb7-d313-44b7-91bb-cfe579335bf5)
