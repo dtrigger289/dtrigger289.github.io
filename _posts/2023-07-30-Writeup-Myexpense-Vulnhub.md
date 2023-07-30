@@ -121,17 +121,17 @@ Probamos cada una de las cookies hasta que nos podamos cambiar de usuario ha "Ma
 
 ![5a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/6cd1f6ff-dc82-427b-807e-eab0e1b66fb1)
 
+![6a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/35d5449f-929f-42c3-a611-02a643f7cc01)
+
 Entramos en la pestaña "Expense reports" y permitimos el pago. Como paso final tenemos que llegar a ser "Paul Bauduoin" que es un "Financial approver". En la pestaña de "Rennes" podemos ver que si añadimos una ' en la url podemos ver que aparece el siguiente error.
 
-![6a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/35d5449f-929f-42c3-a611-02a643f7cc01)
+![7a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/ac3c1d51-5a0a-4e3a-b048-5371fe615535)
 
 Asi que utilizando XSS otra vez pero en la url podremos sacar las contraseñas de los usuarios de la base de datos con la siguiente sintasis.
 
 ```sql
 http://192.168.1.81/site.php?id=2 union select 1, group_concat(username,0x3a, password) from user-- -
 ```
-
-![7a](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/ac3c1d51-5a0a-4e3a-b048-5371fe615535)
 
 copiamos todo el contenido en un bloc de notas y quedaría así
 
