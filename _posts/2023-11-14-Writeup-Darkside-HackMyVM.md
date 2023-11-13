@@ -119,4 +119,4 @@ Al lado de "Executing..." está el simbolo "#" haciendo referencia a root, si de
 
 Finalmente vamos al directorio de root y allí encontramos la segunda flag y habríamos completado la máquina
 
-<div class="tenor-gif-embed" data-postid="10460024" data-share-method="host" data-aspect-ratio="0.632768" data-width="100%"><a href="https://tenor.com/view/puzzle-capcom-fighter-proud-smug-gif-10460024">Puzzle Capcom GIF</a>from <a href="https://tenor.com/search/puzzle-gifs">Puzzle GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+![imagen](https://github.com/dtrigger289/dtrigger289.github.io/assets/109216235/72181e5a-4376-4b34-bfc7-3600e2267f5e)
