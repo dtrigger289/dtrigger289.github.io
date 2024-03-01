@@ -1,5 +1,5 @@
 ---
-title: Darkside WriteUp HackMyVM
+title: Quick WriteUp HackMyVM
 published: true
 ---
 
