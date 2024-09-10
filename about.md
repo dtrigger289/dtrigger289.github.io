@@ -19,3 +19,4 @@ Bachillerato <br>
 Practical Ethical Hacking - The Complete Course (Udemy)<br>
 Curso Introductorio a Linux (Hack4u) <br>
 Networking Basics (Cisco) <br>
+Endpoint Security (Cisco) <br>
