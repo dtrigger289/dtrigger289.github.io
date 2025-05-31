@@ -122,4 +122,4 @@ La protección de GRUB con contraseñas fuertes, el cifrado de disco y la restri
 
 Espero que os haya gustado esta publicación y nos vemos en la próxima.
 
-![[ken.gif]]
+![ken](https://github.com/user-attachments/assets/172fe4c6-36fb-4458-8529-3768c77ffb05)
