@@ -51,7 +51,7 @@ Antes de ejecutar el script, asegúrate de tener acceso a las herramientas neces
 - [iecv.exe](https://www.nirsoft.net/utils/iecookies.html)
 - [EDD.exe](https://www.nirsoft.net/utils/dump_edid.html)
 
-Y al otro ejecutable (listado.bat) mencionado en el código. Además, necesitarás permisos de administrador en el sistema. Si no pudieras ejecutar el código como administrador, solo se obtendrán los datos que no sea necesario permisos de administrador
+Y el otro ejecutable (listado.bat) mencionado en el código. Además, necesitarás permisos de administrador en el sistema. Si no pudieras ejecutar el código como administrador, solo se obtendrán los datos que no sea necesario permisos de administrador
 
 ## Ejecución del Script
 
