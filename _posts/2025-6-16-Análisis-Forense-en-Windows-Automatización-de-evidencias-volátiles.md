@@ -7,7 +7,7 @@ published: true
 
 En el mundo de la ciberseguridad, el análisis forense es una parte muy importante para investigar incidentes y entender cómo se desarrollan los ataques. Este artículo se centra en la automatización de la recolección de evidencias volátiles en sistemas Windows, utilizando un script que automatiza este proceso.
 
-El script permite obtener información importante, como los procesos en ejecución, los servicios activos y las conexiones de red, de manera rápida y eficiente. Al automatizar la recolección de datos, se reduce el riesgo de errores humanos y se mejora el tiempo de respuesta ante incidentes. Esta herramienta podría ser muy para investigadores forenses como para administradores de sistemas que desean mantener la seguridad de sus entornos.
+El script permite obtener información importante, como los procesos en ejecución, los servicios activos y las conexiones de red, de manera rápida y eficiente. Al automatizar la recolección de datos, se reduce el riesgo de errores humanos y se mejora el tiempo de respuesta ante incidentes.
 
 A lo largo de este artículo, vamos a explorar cómo funciona el script, los requisitos necesarios para ejecutarlo y la salida que genera.
 
