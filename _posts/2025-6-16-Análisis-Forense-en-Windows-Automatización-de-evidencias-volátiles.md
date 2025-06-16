@@ -11,7 +11,7 @@ El script permite obtener información importante, como los procesos en ejecuci�
 
 A lo largo de este artículo, vamos a explorar cómo funciona el script, los requisitos necesarios para ejecutarlo y la salida que genera.
 
-¿Qué Hace Este Código?
+# ¿Qué Hace Este Código?
 
 Este script está diseñado para recopilar una amplia variedad de datos volatiles del sistema, incluyendo:
 
