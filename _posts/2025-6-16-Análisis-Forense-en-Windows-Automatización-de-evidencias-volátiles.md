@@ -80,7 +80,7 @@ Es importante tener en cuenta que, aunque este script es una herramienta poderos
 
 # Conclusión
 
-Te invito a probar este script y a compartir tus comentarios y sugerencias. Si encuentras útil esta herramienta, no dudes en compartirla con otros profesionales de la ciberseguridad. Juntos, podemos mejorar nuestras capacidades de análisis forense y proteger mejor nuestros sistemas.
+Te invito a probar este script y a compartir tus comentarios y sugerencias. Si encuentras útil esta herramienta, no dudes en compartirla con otros profesionales de la ciberseguridad.
 
 Gracias por leer y espero que encuentres útil esta herramienta.
 
