@@ -20,7 +20,7 @@ Como se puede observar, están activos el puerto **22** y el puerto **80**. Para
 
 Al visitar ``http://nocturnal.htb``, llegaremos a una página principal que nos permitirá registrarnos e iniciar sesión.
 
-<img width="1920" height="833" alt="3" src="https://github.com/user-attachments/assets/32c0987b-4d87-49f0-bdea-1b289daccf96" />
+<img alt="3" src="https://github.com/user-attachments/assets/32c0987b-4d87-49f0-bdea-1b289daccf96" />
 
 Procedemos a registrarnos e iniciar sesión.
 
