@@ -7,7 +7,7 @@ published: true
 
 <img alt="imagen" src="https://github.com/user-attachments/assets/f37ef058-cd49-4591-86d8-45bfee608c86" />
 
-**Nocturnal** es una máquina de **Hack The Box** que presenta una vulnerabilidad **IDOR** en una aplicación web desarrollada en **PHP**. Obtendremos las credenciales desde una base de datos y las crackearemos para acceder al usuario **Tobias**. Utilizaremos un **CVE** en la aplicación **ISPConfig** que nos permitirá ejecutar comandos, lo que nos llevará a obtener acceso como usuario **root**.
+**Nocturnal** es una máquina de **Hack The Box** que presenta una vulnerabilidad **IDOR** en una aplicación web desarrollada en **PHP**. Gracias a la idor encontramos documentos privados con credenciales que permiten utilizar la app con un usuario con mas privilegios y de ahi subir una shell, obtendremos las credenciales desde una base de datos y las crackearemos para acceder al usuario **Tobias** Finalmente, utilizaremos un **CVE** en la aplicación **ISPConfig** que nos permitirá ejecutar comandos, lo que nos llevará a obtener acceso como usuario **root**
 
 # Reconocimiento
 Comenzaremos lanzando un escaneo con **nmap**.
