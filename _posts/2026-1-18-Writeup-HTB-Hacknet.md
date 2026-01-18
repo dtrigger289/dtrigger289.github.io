@@ -3,10 +3,9 @@ title: Hacknet WriteUp Hack The Box
 published: true
 ---
 
-# Introducción
-
 <img width="300" height="300" alt="imagen" src="https://github.com/user-attachments/assets/564c70dd-a3cd-4ccc-a34c-68ce7b88e808" />
 
+# Introducción
 **Hacknet** es una máquina de **Hack The Box** de dificultad media. La explotación requiere adentrarse en una red social de _hackers_, comprender su funcionamiento e **introducir un payload en nuestro nombre de usuario** para extraer información, como **nombres y contraseñas** del resto de los usuarios.
 
 Más adelante, se aprende a **inyectar código malicioso en la caché** del sitio web, lo que permite la ejecución de comandos para obtener acceso como el usuario **`sandy`**.
