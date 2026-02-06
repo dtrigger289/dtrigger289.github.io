@@ -66,9 +66,12 @@ n11 = findpopen(obj)(cmd, -1, null, -1, -1, -1, null, null, true).communicate()
 ```
 
 Este código construye la cadena de comando en **cmd** (`head -n 1 /etc/passwd; calc; gnome-calculator; kcalc;`).
+
 Obtiene la lista de nombres de propiedades de un objeto vacío con **Object.getOwnPropertyNames({})** y la guarda en **hacked**. Accede a métodos especiales usando esas propiedades: extrae **getattribute** (vía **bymarve** y **n11**) para consultar atributos internos de objetos. Sube por la jerarquía de clases con **n11("**class**").**base**** para llegar a la clase base y asigna su **getattribute** a **getattr**.
 Define la función **findpopen(o)** que recorre recursivamente **o.**subclasses**()** buscando una clase cuyo módulo sea **"subprocess"** y cuyo nombre sea **"Popen"**; si la encuentra, la retorna.
+
 Llama a **findpopen(obj)** para obtener la clase **Popen**, crea una instancia pasando **cmd** y parámetros (incluyendo `true` para `shell=True`) y ejecuta **communicate()** para ejecutar el comando y obtener su salida.
+
 Ahora que entendemos el script, solo tendremos que modificar el parámetro **cmd** para establecer una conexión remota con la máquina.
 
 ```java
