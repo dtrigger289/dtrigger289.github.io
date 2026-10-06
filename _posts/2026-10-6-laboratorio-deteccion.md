@@ -1,3 +1,8 @@
+---
+title: "Lab de Detección en Active Directory"
+date: 2026-10-06
+published: true
+---
 
 Con este laboratorio basico de Active Directory se intenta recrear ciberataques comunes y detectarlos con el agente de Wazuh. 
 
